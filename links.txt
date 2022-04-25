@@ -1,4 +1,4 @@
 AWS
-https://main.d2wgv3i6c0ui40.amplifyapp.com/
+https://main.d3tugs00ba1zs8.amplifyapp.com/
 NETLIFY
-https://cosmic-torte-6374ba.netlify.app/
+https://dulcet-madeleine-040739.netlify.app/
