@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {nanoid} from 'nanoid'
-import {firebase} from './firebase'
+import {firebase} from '../firebase'
 
 const Formulario = () => {
     const [fruta, setFruta] = React.useState('')
