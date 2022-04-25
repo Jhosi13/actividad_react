@@ -1,0 +1,4 @@
+AWS
+https://main.d2wgv3i6c0ui40.amplifyapp.com/
+NETLIFY
+https://cosmic-torte-6374ba.netlify.app/
