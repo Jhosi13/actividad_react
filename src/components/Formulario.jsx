@@ -89,7 +89,7 @@ const Formulario = () => {
 
             setListaPersonas([
                 ...listaPersonas,
-                {id:nanoid(), nombrePersona:nombre, nombreDescripcion:descripcion,
+                {id:nanoid(), nombreNombre:nombre, nombreDescripcion:descripcion,
                   nombreEstudios: estudios,
                   nombreEdad: edad,
                   nombreIdiomas: idiomas,
@@ -113,14 +113,14 @@ const Formulario = () => {
     }
 
     const editar = item =>{
-      setNombre(item.nombrePersona)
+      setNombre(item.nombreNombre)
         setDescripcion(item.nombreDescripcion)
         setEstudios(item.nombreEstudios)
         setEdad(item.nombreEdad)
         setIdiomas(item.nombreIdiomas)
         setVacantes(item.nombreVacantes)
-        setNombre(item.nombreReferencia)
-        setReferencia(true)
+        setReferencia(item.nombreReferencia)
+        setModoEdicion(true)
         setId(item.id)
     }
 
@@ -160,8 +160,8 @@ const Formulario = () => {
          try{
              const db = firebase.firestore()
              await db.collection('personas').doc(id).update({
-                 nombreNombre:nombre,
-                 nombreDescripcion: descripcion,
+                nombreNombre:nombre,
+                nombreDescripcion: descripcion,
                 nombreEstudios: estudios,
                 nombreEdad: edad,
                 nombreIdiomas: idiomas,
@@ -216,6 +216,11 @@ const Formulario = () => {
         setNombre('')
         setId('')
         setDescripcion('')
+        setEstudios('')
+        setEdad('')
+        setIdiomas('')
+        setVacantes('')
+        setReferencia('')
         setError(null)
     }
 
@@ -241,7 +246,7 @@ const Formulario = () => {
                                 <button className='btn btn-danger btn-sm float-end mx-2' onClick={()=> eliminar(item.id)}>
                                 Eliminar
                                 </button>
-                                <button className='btn btn-warning btn-sm float-end'onClick={()=>editar(item)}>
+                                <button className='btn btn-warning btn-sm float-end' onClick={() => editar(item)}>
                                 Editar
                                 </button>
                             </li>    
@@ -263,7 +268,7 @@ const Formulario = () => {
                     className='form-control mb-2'
                     type = "text"
                     placeholder='Ingrese nombres'
-                    onChange={(e)=> nombre(e.target.value)}
+                    onChange={(e)=> setNombre(e.target.value)}
                     value = {nombre}
                     />
                     <input 
